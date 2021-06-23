@@ -1,4 +1,6 @@
 import express from 'express';
+import 'reflect-metadata';
+import './database';
 
 const app = express();
 
@@ -13,5 +15,5 @@ app.post('/post', (request, response) => {
     return response.send("Post em Home")
 });
 
-app.listen(3000, () => console.log("Server Initialized..."));
+app.listen(3001, () => console.log("Server Initialized..."));
 
