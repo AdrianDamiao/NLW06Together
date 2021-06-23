@@ -1,19 +1,13 @@
 import express from 'express';
 import 'reflect-metadata';
 import './database';
+import { router } from './routes'
 
 const app = express();
 
-app.get('/', (request, response) => {
-    //Request => Entrando
-    //Response => Saindo
-   return response.send("Get para Home") //Colocar o return é aconselhado
-});
+app.use(express.json())
 
-app.post('/post', (request, response) => {
+app.use(router); //Midware utilizado para inserir as rotas no express
 
-    return response.send("Post em Home")
-});
-
-app.listen(3001, () => console.log("Server Initialized..."));
+app.listen(3000, () => console.log("Server Initialized..."));
 
